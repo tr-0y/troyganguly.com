@@ -1,50 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top 5 Cutest Dogs</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>troyganguly.com</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Banner ── */
+    .banner {
+      width: 100%;
+      background: #050508;
+      border-bottom: 1px solid rgba(0,245,255,0.2);
+      padding: 0.6rem 2rem;
+      text-align: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(0,245,255,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(0,245,255,0.04) 50%, transparent 100%);
+      animation: sweep 4s ease-in-out infinite;
+    }
+    @keyframes sweep {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .banner span {
+      color: #00f5ff;
+      text-shadow: 0 0 10px rgba(0,245,255,0.8);
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+    }
+
+    /* ── Hero ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: center;
+      padding: 5rem 0 4rem;
+    }
+    @media (max-width: 680px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-img-wrap { order: -1; }
+    }
+
+    /* ── Profile image ── */
+    .hero-img-wrap {
+      position: relative;
+    }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(0,245,255,0.2);
+      border-radius: 4px;
+      animation: pulse-border 3s ease-in-out infinite;
+    }
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; right: -8px;
+      width: 40px; height: 40px;
+      border-bottom: 2px solid #00f5ff;
+      border-right: 2px solid #00f5ff;
+    }
+    @keyframes pulse-border {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,245,255,0); }
+      50%      { box-shadow: 0 0 20px 2px rgba(0,245,255,0.15); }
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 3px;
+      filter: saturate(0.7) brightness(0.9);
+      border: 1px solid rgba(0,245,255,0.15);
+    }
+    .img-corner {
+      position: absolute;
+      top: -8px; left: -8px;
+      width: 40px; height: 40px;
+      border-top: 2px solid #00ff88;
+      border-left: 2px solid #00ff88;
+    }
+
+    /* ── Stat bar ── */
+    .stat-bar {
+      display: flex;
+      gap: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: #0d0d14;
+      border: 1px solid rgba(0,245,255,0.12);
+      border-radius: 3px;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat-val {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.3rem;
+      color: #00f5ff;
+      text-shadow: 0 0 10px rgba(0,245,255,0.5);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      color: #3a3d50;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(0,245,255,0.1);
+      align-self: stretch;
+    }
+
+    /* ── Terminal block ── */
+    .terminal {
+      background: #0a0a10;
+      border: 1px solid rgba(0,245,255,0.15);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.82rem;
+      line-height: 2;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .terminal-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(0,245,255,0.08);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff0077; }
+    .dot-y { background: #ffcc00; }
+    .dot-g { background: #00ff88; }
+    .term-line { color: #6b7280; }
+    .term-line .prompt { color: #00ff88; margin-right: 0.5rem; }
+    .term-line .cmd { color: #e8eaf6; }
+    .term-line .out { color: #00f5ff; }
+    .cursor {
+      display: inline-block;
+      width: 8px; height: 1em;
+      background: #00f5ff;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+    /* ── About section ── */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 680px) { .about-layout { grid-template-columns: 1fr; } }
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+    .skill-bar-bg {
+      flex: 1;
+      height: 2px;
+      background: rgba(0,245,255,0.08);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00f5ff, #00ff88);
+      border-radius: 1px;
+    }
+
+    /* ── Dog grid ── */
+    .dog-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 600px) { .dog-grid { grid-template-columns: repeat(3, 1fr); } }
+    .dog-card {
+      background: #111120;
+      border: 1px solid rgba(0,245,255,0.12);
+      border-radius: 3px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .dog-card:hover { border-color: rgba(0,245,255,0.4); }
+    .dog-rank {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.6rem;
+      color: #3a3d50;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+    .dog-icon { font-size: 1.8rem; display: block; margin-bottom: 0.4rem; }
+    .dog-name {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      color: #6b7280;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Top 5 Cutest Dog</h1>
-    <p>made by troy</p>
-  </header>
+  <!-- Banner -->
+  <div class="banner">
+    <span>troyganguly.com</span> &nbsp;·&nbsp; developer &nbsp;·&nbsp; dog enthusiast
+  </div>
 
-  <section class="dog-section">
-    <img src="https://homesforhuskies.org.au/wp-content/uploads/2026/03/Sophie-feature.jpg.webp" alt="The cutest husky">
-    <h2>1.</h2>
-    <p>this cute husky is sitting in front of a brick wall, tongue out</p>
-  </section>
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="index.html">TG<span style="color:#6b7280">_</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">home</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="dogs.html">dogs</a></li>
+    </ul>
+  </nav>
 
-  <section class="dog-section">
-    <img src="https://petslovefresh.com/cdn/shop/articles/IMG_5404_8624d8c3-df9e-4da5-bd89-e5885b3a46c3_1170x.jpg?v=1752242272" alt="dog">
-    <h2>2.</h2>
-    <p>the husky looks with its piercing, pale blue eyes</p>
-  </section>
+  <div class="container">
 
-  <section class="dog-section">
-    <img src="https://drbillspetnutrition.com/wp-content/uploads/2025/01/Siberian-Husky-Dog-Breed-Spotlight-DB-Blog-Image.png" alt="dog">
-    <h2>3.</h2>
-    <p>this husky makes an adventorous leap through the snow.</p>
-  </section>
+    <!-- Hero -->
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">// hello world</div>
+        <h1>Lorem ipsum<br><span style="color:#00f5ff;text-shadow:0 0 8px rgba(0,245,255,0.6)">dolor sit amet</span></h1>
+        <p class="hero-sub">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Replace this with a line or two about yourself.
+        </p>
+        <div class="btns" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="projects.html" class="btn btn-primary">view projects</a>
+          <a href="dogs.html" class="btn btn-ghost">meet the dogs</a>
+          <a href="about.html" class="btn btn-secondary">about me</a>
+        </div>
+      </div>
 
-  <section class="dog-section">
-    <img src="https://images.pexels.com/photos/3715587/pexels-photo-3715587.jpeg" alt="dog">
-    <h2>4.</h2>
-    <p>goofy husky in the snow with its tongue out, almost smiling at the camera.</p>
-  </section>
+      <div class="hero-img-wrap">
+        <div class="img-corner"></div>
+        <img
+          src="https://images.pexels.com/photos/3715587/pexels-photo-3715587.jpeg"
+          alt="profile"
+        />
+      </div>
+    </div>
 
-  <section class="dog-section">
-    <img src="https://images.ctfassets.net/nx3pzsky0bc9/2cqiWrCJcx4Q7dU9tFT29B/b8a50fdfa1ef80fbd57a7c0e50965a43/Siberian_Husky_in_the_snow.png?q=65&w=804" alt="dog">
-    <h2>5.</h2>
-    <p>a scowl at the camera, this husky doesnt like to be pictured</p>
-  </section>
+    <!-- Stat bar -->
+    <div class="stat-bar">
+      <div class="stat">
+        <span class="stat-val">42+</span>
+        <span class="stat-label">projects shipped</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-val">5</span>
+        <span class="stat-label">dogs ranked</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-val">∞</span>
+        <span class="stat-label">cups of coffee</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-val">MEL</span>
+        <span class="stat-label">based in</span>
+      </div>
+    </div>
 
+    <!-- Terminal -->
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <div class="term-line"><span class="prompt">~$</span><span class="cmd">whoami</span></div>
+      <div class="term-line"><span class="out">troy ganguly — developer, dog person, lorem ipsum enjoyer</span></div>
+      <div class="term-line"><span class="prompt">~$</span><span class="cmd">cat interests.txt</span></div>
+      <div class="term-line"><span class="out">programming, dogs, building things, more dogs</span></div>
+      <div class="term-line"><span class="prompt">~$</span><span class="cmd">ls projects/</span></div>
+      <div class="term-line"><span class="out">project-alpha &nbsp; project-beta &nbsp; dogs.exe &nbsp; something-cool</span></div>
+      <div class="term-line"><span class="prompt">~$</span><span class="cmd"><span class="cursor"></span></span></div>
+    </div>
+
+    <!-- About + Skills -->
+    <div class="section-label">about</div>
+    <div class="about-layout">
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Replace this with something real about yourself — what you do, what you're into, what you're working on.</p>
+        <div class="tags" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:1rem;">
+          <span class="tag tag-cyan">python</span>
+          <span class="tag tag-green">javascript</span>
+          <span class="tag tag-purple">react</span>
+          <span class="tag tag-cyan">html/css</span>
+          <span class="tag tag-pink">dogs</span>
+        </div>
+      </div>
+      <div class="skills-list">
+        <div class="skill-row">
+          python
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          javascript
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="skill-row">
+          html/css
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          dogs
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Dog section -->
+    <div class="section-label">top 5 dogs, ranked</div>
+    <div class="dog-grid">
+      <div class="dog-card">
+        <div class="dog-rank">#01</div>
+        <span class="dog-icon">🐕</span>
+        <div class="dog-name">breed name</div>
+      </div>
+      <div class="dog-card">
+        <div class="dog-rank">#02</div>
+        <span class="dog-icon">🐩</span>
+        <div class="dog-name">breed name</div>
+      </div>
+      <div class="dog-card">
+        <div class="dog-rank">#03</div>
+        <span class="dog-icon">🦮</span>
+        <div class="dog-name">breed name</div>
+      </div>
+      <div class="dog-card">
+        <div class="dog-rank">#04</div>
+        <span class="dog-icon">🐕‍🦺</span>
+        <div class="dog-name">breed name</div>
+      </div>
+      <div class="dog-card">
+        <div class="dog-rank">#05</div>
+        <span class="dog-icon">🐶</span>
+        <div class="dog-name">breed name</div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Projects preview -->
+    <div class="section-label">recent projects</div>
+    <div class="grid-2" style="margin-bottom:3rem;">
+      <div class="card">
+        <h3 style="margin-bottom:0.5rem;">project-alpha</h3>
+        <p style="font-size:0.85rem;margin-bottom:0.75rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace with what this project actually does.</p>
+        <div class="tags" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.75rem;">
+          <span class="tag tag-cyan">python</span>
+          <span class="tag tag-green">github</span>
+        </div>
+        <a href="projects.html" class="btn btn-secondary" style="font-size:0.7rem;padding:5px 12px;">view project →</a>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:0.5rem;">project-beta</h3>
+        <p style="font-size:0.85rem;margin-bottom:0.75rem;">Ut enim ad minim veniam, quis nostrud exercitation. Replace with what this project actually does.</p>
+        <div class="tags" style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.75rem;">
+          <span class="tag tag-cyan">javascript</span>
+          <span class="tag tag-purple">react</span>
+        </div>
+        <a href="projects.html" class="btn btn-secondary" style="font-size:0.7rem;padding:5px 12px;">view project →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
   <footer>
-    troyganguly.com - troy
+    <span>troyganguly.com &nbsp;·&nbsp; built with github pages &nbsp;·&nbsp; <a href="mailto:you@email.com">get in touch</a></span>
   </footer>
 
 </body>
