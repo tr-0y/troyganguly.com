@@ -4,23 +4,27 @@
     <title>
       troy's website
     </title>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
       :root {
-        --main-colour: #bcc0e9;
+        --main-colour: #d6ecff;
         --secondary-colour: #ffffff;
       }
 
       body {
         font-family: Arial, Helvetica, sans-serif;
-        height: 200vh; /* pls change later just for testing*/
+        height: 500vh; /* pls change later just for testing*/
         box-sizing: border-box;
         margin: 0px;
         background-color: var(--main-colour);
 
-        padding-top: 50px;
-        padding-left: 10px;
+        padding-top: 60px;
+      }
+
+      p {
+        line-height: 1.3;
       }
 
       .header {
@@ -31,8 +35,9 @@
         left: 0px;
         right: 0px;
         height: 60px;
-        flex-direction: horizontal;
+        flex-direction: row;
         align-items: center;
+        z-index: 999;
       }
 
       .header-left {
@@ -44,9 +49,57 @@
       .header-title {
         font-size: 24px;
         color: white;
-        transition: color 0.15s,;
+        transition: color 0.15s, box-shadow 0.15s;
         text-decoration: none;
+        padding: 4px;
+      }
 
+      .header-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header-title:hover {
+        color: var(--main-colour);
+        box-shadow: 0px 0px 4px 2px rgba(255, 255, 255, 0.2);
+      }
+
+      h1 {
+        font-weight: normal;
+        text-decoration: none;
+      }
+
+      section {
+        margin-bottom: 60px;
+      }
+
+      .main-section {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 800px;
+      }
+
+      .dog-div {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .skill-card-div {
+        display: flex;
+        padding: 12px 0px;
+        margin: 4px 0px;
+        width: 100%;
+        background-color: rgba(0,0,0,0.85);
+
+        align-items: center;
+        justify-content: center;
+        color: white;
+
+        border-style: none;
+        border-radius: 12px;
+        border-width: 0px;
       }
 
     </style>
@@ -57,20 +110,75 @@
       <div class="header">
 
         <div class="header-left">
-          <div class="header-title">
-            <a class="header-title" href="https://troyganguly.com">troyganguly.com</a>
+          <div class="header-title-container">
+            <a class="header-title" href="/">troyganguly.com</a>
           </div>
         </div>
 
         <div class="header-right">
-
+          <nav>
+            <!--pls add the stuff-->
+          </nav>
         </div>
       </div>
     </header>
 
-    <h1>WELCOME TO MY SITE!!</h1>
-    <p>
-      hello
-    </p>
+    <div class="main-section">
+      <section id="about">
+        <h1>welcome to my site!!</h1>
+        <p>my name is troy</p>
+        <p>don't be mean to me</p>
+      </section>
+
+      <br>
+      <section id="hobbies">
+        <h2>my hobbies</h2>
+        <p>what do i even do in my free time</p>
+        <p>i really like games</p>
+        <p>my favourite games are:
+          Geometry Dash, Counter-Strike, osu!,
+          Roblox, DDLC, Kerbal Space Program
+        </p>
+        <br>
+        <p>i also like movies and tv shows</p>
+        <p>and my favourite films are probably:</p>
+        <p>Silence of The Lambs, Whiplash, Fight Club, No Country For Old Men</p>
+        <p>then my favourite shows are: House, Death Note, Better Call Saul</p>
+        
+        <br>
+        <p>idk i write stuff sometimes</p>
+      </section>
+
+      <section id="dog">
+        <h2>my dog</h2>
+        <div class="dog-div">
+          <img src="assets/dog.png"
+          style="width:50%; object-fit: cover;"
+          alt="a picture of a dog">
+          <p>he takes up a copious amount of the viewport because he is very cute</p>
+        </div>
+        <p>dogs often bark and go woof</p>
+      </section>
+
+      <section id="programming">
+        <h2>programming</h2>
+        <p>sometimes i program, for example, i made this website myself</p>
+
+        <div class="skill-card-div">python — intermediate</div>
+        <div class="skill-card-div">html — fine</div>
+        <div class="skill-card-div">css — fine</div>
+        <div class="skill-card-div">js — learning...</div>
+
+        <p>i wanna learn sql and fastapi</p>
+        <p>i loveeeeeee git</p>
+      </section>
+
+      <hr>
+
+      <footer>
+        <p>website rawdogged with html and css because i hate React</p>
+        <small>also: DONT FUCKING EMAIL MEEEEE</small>
+      </footer>
+    </div>
   </body>
 </html>
