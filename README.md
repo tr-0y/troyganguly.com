@@ -1,2 +1,2 @@
 # troyganguly.com
-thanks claude lolol
+welcome to my website; now NOT coded by Claude
