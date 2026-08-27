@@ -129,6 +129,27 @@
         }
       }
 
+      .movie-grid-div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+      }
+
+      .movie-card {
+        display: flex;
+        transition: transform 0.2s;
+      }
+
+      .movie-card:hover {
+        transform: scale(1.05);
+      }
+
+      .movie-img {
+        object-fit: cover;
+        width: 100%;
+        aspect-ratio: 2/3;
+      }
+
     </style>
   </head>
 
@@ -167,9 +188,42 @@
         </p>
         <br>
         <p>i also like movies and tv shows</p>
-        <p>and my favourite films are probably:</p>
-        <p>Silence of The Lambs, Whiplash, Fight Club, No Country For Old Men</p>
-        <p>then my favourite shows are: House, Death Note, Better Call Saul</p>
+        <p>HERE ARE MY FAVOURITE MEDIA</p>
+
+        <div class="movie-grid-div">
+          <div class="movie-card">
+            <img class="movie-img" src="assets/bcs.png">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/deathnote.png">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/fight-club.jpg">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/house.png">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/nocountry.jpg">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/silence-of-the-lambs.jpg">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/thedarkknight.jpg">
+          </div>
+
+          <div class="movie-card">
+            <img class="movie-img" src="assets/whiplash.jpg">
+          </div>
+        </div>
+
         <p>yes i have a Letterboxd</p>
         
         <br>
