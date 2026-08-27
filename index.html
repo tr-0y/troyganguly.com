@@ -9,7 +9,7 @@
 
     <style>
       :root {
-        --main-colour: #d6ecff;
+        --main-colour: #b4dcff;
         --secondary-colour: #ffffff;
       }
 
@@ -91,15 +91,42 @@
         padding: 12px 0px;
         margin: 4px 0px;
         width: 100%;
-        background-color: rgba(0,0,0,0.85);
+        background-color: #88c9ff;
 
         align-items: center;
         justify-content: center;
         color: white;
 
-        border-style: none;
+        border-style: solid;
         border-radius: 12px;
-        border-width: 0px;
+        border-width: 4px;
+        border-color: rgba(0, 0, 0, 0.2);
+
+        transition: box-shadow 0.15s, opacity 0.15s;
+      }
+      
+      .skill-card-div:hover {
+        opacity: 0.8;
+        box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.2);
+
+      }
+      
+      .natsuki-div {
+        position: fixed;
+        bottom: -10px;
+        right: -80px;
+        pointer-events: none;
+        user-select: none;
+      }
+      
+      .natsuki-img {
+        height: 500px;
+      }
+
+      @media (max-width: 800px) {
+        .natsuki-div {
+          display: none;
+        }
       }
 
     </style>
@@ -130,20 +157,20 @@
         <p>don't be mean to me</p>
       </section>
 
-      <br>
       <section id="hobbies">
         <h2>my hobbies</h2>
         <p>what do i even do in my free time</p>
         <p>i really like games</p>
         <p>my favourite games are:
           Geometry Dash, Counter-Strike, osu!,
-          Roblox, DDLC, Kerbal Space Program
+          DDLC, Kerbal Space Program
         </p>
         <br>
         <p>i also like movies and tv shows</p>
         <p>and my favourite films are probably:</p>
         <p>Silence of The Lambs, Whiplash, Fight Club, No Country For Old Men</p>
         <p>then my favourite shows are: House, Death Note, Better Call Saul</p>
+        <p>yes i have a Letterboxd</p>
         
         <br>
         <p>idk i write stuff sometimes</p>
@@ -162,12 +189,12 @@
 
       <section id="programming">
         <h2>programming</h2>
-        <p>sometimes i program, for example, i made this website myself</p>
+        <p>sometimes i program; i made this website myself
 
         <div class="skill-card-div">python — intermediate</div>
         <div class="skill-card-div">html — fine</div>
         <div class="skill-card-div">css — fine</div>
-        <div class="skill-card-div">js — learning...</div>
+        <div class="skill-card-div">js — ass...</div>
 
         <p>i wanna learn sql and fastapi</p>
         <p>i loveeeeeee git</p>
@@ -179,6 +206,10 @@
         <p>website rawdogged with html and css because i hate React</p>
         <small>also: DONT FUCKING EMAIL MEEEEE</small>
       </footer>
+    </div>
+
+    <div class="natsuki-div">
+      <img class="natsuki-img" src="assets/natsuki.png">
     </div>
   </body>
 </html>
