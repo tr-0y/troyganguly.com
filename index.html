@@ -119,7 +119,7 @@
       .skill-card-div:hover {
         opacity: 0.8;
         box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.2);
-        transform: scale(1.03);
+        transform: scale(1.05);
       }
       
       .natsuki-div {
@@ -187,6 +187,16 @@
 
       .header-right a:hover {
         text-decoration: underline;
+      }
+
+      .dog-img {
+        transition: transform 0.15s;
+        width:60%;
+        object-fit: cover;
+      }
+
+      .dog-img:active {
+        transform: scale(1.05);
       }
 
     </style>
@@ -282,9 +292,7 @@
       <section id="dog">
         <h2>my dog</h2>
         <div class="dog-div">
-          <img src="assets/dog.png"
-          style="width:50%; object-fit: cover;"
-          alt="a picture of a dog">
+          <img src="assets/dog.png" alt="a picture of a dog" class="dog-img">
           <p>he takes up a copious amount of the viewport because he is very cute</p>
         </div>
         <p>dogs often bark and go woof</p>
