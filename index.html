@@ -27,7 +27,8 @@
 
         padding-top: 60px;
         padding-bottom: 200px;
-        background: linear-gradient(#9cd3f6, #96c5ff);
+        background: linear-gradient(var(--main-colour), #96c5ff);
+        background-color: var(--main-colour);
       }
 
       p {
@@ -85,6 +86,13 @@
 
       section {
         margin-bottom: 60px;
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 24px;
+        backdrop-filter: blur(12px);
+
+        box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
       }
 
       .main-section {
@@ -139,6 +147,13 @@
       @media (max-width: 800px) {
         .natsuki-div {
           display: none;
+        }
+        .header-right {
+          display: none;
+        }
+        .header {
+          align-items: center;
+          justify-content: center;
         }
       }
 
@@ -211,6 +226,12 @@
         transform: scale(1.05);
       }
 
+      .fun-facts-list {
+        line-height: 1.8;
+      }
+
+      
+
     </style>
   </head>
 
@@ -228,6 +249,7 @@
           <nav>
             <a href="#about">about</a>
             <a href="#hobbies">my hobbies</a>
+            <a href="#facts">facts</a>
             <a href="#dog">my dog</a>
             <a href="#programming">programming</a>
           </nav>
@@ -238,7 +260,7 @@
     <div class="main-section">
       <section id="about">
         <h1>welcome to my site!!</h1>
-        <p>my name is troy</p>
+        <p>my name is <span class="my-name">troy</span></p>
         <p>don't be mean to me</p>
       </section>
 
@@ -292,6 +314,21 @@
         
         <br>
         <p>idk i write stuff sometimes</p>
+      </section>
+
+      <section id="facts">
+        <h2>fun facts</h2>
+        <ol class="fun-facts-list">
+          <li>i type real fast (150 wpm)</li>
+          <li>i really hate sparkling water</li>
+          <li>im bad at git commits</li>
+          <li>analog clocks should be annihilated</li>
+          <li>i used to use linux but it got annoying</li>
+          <li>i have strong opinions on movies...</li>
+          <li>i like raccoons and foxes</li>
+          <li>i have a lot of twisty puzzles (rubiks cubes)</li>
+          <li>this confession has meant nothing</li>
+        </ol>
       </section>
 
       <section id="dog">
