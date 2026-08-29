@@ -214,8 +214,8 @@
         display: none;
         position: absolute;
         width: 400px;
-        right: 40px;
-        bottom: 50px;
+        right: 30px;
+        bottom: 30px;
       }
 
       @media (max-width: 800px) {
@@ -231,6 +231,10 @@
         }
         .movie-grid-div {
           grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .nyan-cats img {
+          width: 50px;
         }
       }
 
@@ -259,11 +263,18 @@
       </div>
     </header>
 
-    <div class="main-section">
+    <main class="main-section">
       <section id="about">
         <h1>welcome to my site!!</h1>
         <p>my name is <span class="my-name">troy</span></p>
         <p>don't be mean to me</p>
+        <div class="nyan-cats">
+          <img src="assets/nyancat.gif" alt="a nyan cat">
+          <img src="assets/nyancat.gif" alt="a nyan cat">
+          <img src="assets/nyancat.gif" alt="a nyan cat">
+          <img src="assets/nyancat.gif" alt="a nyan cat">
+          <img src="assets/nyancat.gif" alt="a nyan cat">
+        </div>
       </section>
 
       <section id="hobbies">
@@ -363,7 +374,7 @@
         <p>website rawdogged with html and css because i hate React</p>
         <small>DONT FUCKING EMAIL MEEEEEE</small>
       </footer>
-    </div>
+    </main>
 
     <div class="natsuki-div">
       <img class="natsuki-img" id="natsuki" src="assets/natsuki.png" alt="">
