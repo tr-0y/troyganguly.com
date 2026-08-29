@@ -210,6 +210,14 @@
         line-height: 1.8;
       }
 
+      .explosion-img {
+        display: none;
+        position: absolute;
+        width: 400px;
+        right: 40px;
+        bottom: 50px;
+      }
+
       @media (max-width: 800px) {
         .natsuki-div {
           display: none;
@@ -358,7 +366,25 @@
     </div>
 
     <div class="natsuki-div">
-      <img class="natsuki-img" src="assets/natsuki.png" alt="">
+      <img class="natsuki-img" id="natsuki" src="assets/natsuki.png" alt="">
+      <img class="explosion-img" id="explosion" src="assets/explosion.gif" alt="">
     </div>
+
+    <script>
+      const natsuki = document.getElementById("natsuki")
+      const explosion = document.getElementById("explosion")
+      const explosionSound = new Audio("assets/explosion.mp3")
+
+      natsuki.onclick = function() {
+        natsuki.style.display = "none";
+        explosion.style.display = "block";
+        explosionSound.play();
+
+        setTimeout(() => {
+          explosion.style.display = "none";
+        }, 1500);
+      }
+
+    </script>
   </body>
 </html>
