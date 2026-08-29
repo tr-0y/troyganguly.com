@@ -86,7 +86,7 @@
 
       section {
         margin-bottom: 60px;
-        padding: 24px;
+        padding: 12px 24px 12px 24px;
         background: rgba(255, 255, 255, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.35);
         border-radius: 24px;
@@ -220,6 +220,40 @@
 
       .nyan-cats img {
         width: 80px;
+      }
+
+      .text-input-box {
+        resize: none;
+        width: 250px;
+        height: 100px;
+        margin: 10px 0px;
+        display: block;
+      }
+
+      .send-button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f379ce;
+        color: white;
+        transition: box-shadow 0.15s, opacity 0.15s;
+        display: block;
+      }
+      
+      .send-button:hover {
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .send-button:active {
+        opacity: 0.8;
+      }
+
+      input,
+      textarea,
+      select,
+      button {
+        font: inherit;
       }
 
       /* WATCH OUT !!!! */
@@ -364,8 +398,20 @@
         <div class="skill-card-div">css — intermediate</div>
         <div class="skill-card-div">js — trash</div>
 
-        <p>i wanna learn postgresql and fastapi</p>
+        <p>i wanna learn sqlite and fastapi</p>
         <p>i LOVE git</p>
+      </section>
+
+      <section>
+        <h2>send me a message</h2>
+
+        <form class="form" id="form">
+          <label for="name">name:</label>
+          <input type="text" placeholder="write your name" id="name" name="name" maxlength="30" required>
+
+          <textarea class="text-input-box" placeholder="write your message" id="message" name="message" maxlength="2000" required></textarea>
+          <button class="send-button" id="send-button">send</button>
+        </form>
       </section>
 
       <hr>
@@ -382,9 +428,9 @@
     </div>
 
     <script>
-      const natsuki = document.getElementById("natsuki")
-      const explosion = document.getElementById("explosion")
-      const explosionSound = new Audio("assets/explosion.mp3")
+      const natsuki = document.getElementById("natsuki");
+      const explosion = document.getElementById("explosion");
+      const explosionSound = new Audio("assets/explosion.mp3");
 
       natsuki.onclick = function() {
         natsuki.style.display = "none";
@@ -395,6 +441,12 @@
           explosion.style.display = "none";
         }, 1500);
       } //she fucking explodes lol
+
+      const sendButton = document.getElementById("send-button");
+      sendButton.onclick = function() {
+        event.preventDefault();
+        window.alert("your message wasnt sent lol")
+      }
 
     </script>
   </body>
