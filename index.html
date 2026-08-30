@@ -219,7 +219,7 @@
       }
 
       .nyan-cats img {
-        width: 80px;
+        width: 10%;
       }
 
       .text-input-box {
@@ -445,7 +445,32 @@
       const sendButton = document.getElementById("send-button");
       sendButton.onclick = function() {
         event.preventDefault();
+
+        const name = document.getElementById("name").value.trim()
+        const message = document.getElementById("message").value.trim()
+
+        if(message.length === 0) {
+          window.alert("error: message must not be empty");
+          return;
+        }
+
+        if(name.length === 0) {
+          window.alert("error: name must not be empty");
+          return;
+        }
+
+        if(message.length > 2000) {
+          window.alert("error: message is too long! (2000 char max)");
+          return;
+        }
+
+        if(name.length > 50) {
+          window.alert("error: name is too long! (50 char max)")
+          return;
+        }
+
         window.alert("your message wasnt sent lol")
+        //COMING SOON
       }
 
     </script>
