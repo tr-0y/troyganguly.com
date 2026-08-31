@@ -256,6 +256,35 @@
         font: inherit;
       }
 
+      .fun-facts-div {
+        display: flex;
+        gap: 10px;
+      }
+
+      .l-img {
+        aspect-ratio: 2/1;
+        border-radius: 12px;
+        transition: opacity 0.15s, box-shadow 0.15s, transform 0.08s;
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+
+        object-fit: cover;
+      }
+
+      .l-img:hover {
+        cursor: pointer;
+      }
+
+      .l-img:active {
+        opacity: 0.8;
+        box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+        transform: scale(0.95);
+      }
+
+      #counter {
+        font-weight: bold;
+        margin: 0px 3px;
+      }
+
       /* WATCH OUT !!!! */
       @media (max-width: 800px) {
         .natsuki-div {
@@ -270,6 +299,9 @@
         }
         .movie-grid-div {
           grid-template-columns: 1fr 1fr 1fr;
+        }
+        .fun-facts-div {
+          flex-direction: column;
         }
       }
 
@@ -366,15 +398,22 @@
 
       <section id="facts">
         <h2>fun facts</h2>
-        <ol class="fun-facts-list">
-          <li>i type real fast (150 wpm)</li>
-          <li>i really hate sparkling water</li>
-          <li>im bad at git commits</li>
-          <li>i used to use linux but it got annoying</li>
-          <li>i like raccoons and foxes</li>
-          <li>i have a lot of twisty puzzles (rubik's cubes)</li>
-          <li>this confession has meant nothing</li>
-        </ol>
+
+        <div class="fun-facts-div">
+          <ol class="fun-facts-list">
+            <li>i type real fast (150 wpm)</li>
+            <li>i really hate sparkling water</li>
+            <li>im bad at git commits</li>
+            <li>i used to use linux but it got annoying</li>
+            <li>i like raccoons and foxes</li>
+            <li>i have a lot of twisty puzzles (rubik's cubes)</li>
+            <li>this confession has meant nothing</li>
+            <li>you have pressed L <span id="counter">0</span> times</li>
+          </ol>
+          <img src="assets/l.gif" alt="character L from death note" class="l-img" id="l">
+        </div>
+
+        
       </section>
 
       <section id="dog">
@@ -407,7 +446,7 @@
 
         <form class="form" id="form">
           <label for="name">name:</label>
-          <input type="text" placeholder="write your name" id="name" name="name" maxlength="30" required>
+          <input type="text" placeholder="write your name" id="name" name="name" maxlength="200" required>
 
           <textarea class="text-input-box" placeholder="write your message" id="message" name="message" maxlength="2000" required></textarea>
           <button class="send-button" id="send-button">send</button>
@@ -464,13 +503,22 @@
           return;
         }
 
-        if(name.length > 50) {
-          window.alert("error: name is too long! (50 char max)")
+        if(name.length > 200) {
+          window.alert("error: name is too long! (200 char max)")
           return;
         }
 
         window.alert("your message wasnt sent lol")
         //COMING SOON
+      }
+
+      let count = 0;
+
+      const lCounter = document.getElementById("counter")
+      const lImage = document.getElementById("l")
+      lImage.onclick = function() {
+        count++
+        lCounter.textContent = count;
       }
 
     </script>
