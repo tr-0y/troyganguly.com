@@ -382,7 +382,6 @@
   </head>
 
   <body>
-    </marquee>
     <header>
       <div class="header">
 
@@ -622,7 +621,6 @@
         }
       }
 
-      const notifyButton = document.getElementById("notify-button");
       const notificationHeading = document.getElementById("notification-heading");
       const notificationMessage = document.getElementById("notification-message");
       const notificationToast = document.getElementById("notification");
@@ -631,6 +629,8 @@
       notificationToast.onclick = function() {
         notificationToast.classList.remove("visible");
       };
+
+      let notificationTimeout;
 
       function notification(title, message, type = "info") {
       notificationHeading.textContent = title;
@@ -652,9 +652,11 @@
       }
       notificationToast.classList.add("visible");
 
-      setTimeout(() => {
+      clearTimeout(notificationTimeout);
+
+      notificationTimeout = setTimeout(() => {
         notificationToast.classList.remove("visible");
-      }, 5000);
+      }, 4000);
     }
 
     </script>
