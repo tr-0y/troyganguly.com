@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preload" href="assets/info.png" as="image">
+    <link rel="preload" href="assets/error.png" as="image">
+    <link rel="preload" href="assets/warning.png" as="image">
+
     <style>
       :root {
         --main-colour: #9cd3f6;
@@ -636,6 +640,8 @@
       notificationHeading.textContent = title;
       notificationMessage.textContent = message;
       notificationToast.style.display = "flex";
+      
+      notificationIcon.style.visibility = "hidden";
 
       switch (type) {
         case "info":
@@ -650,6 +656,8 @@
           notificationIcon.src = "assets/error.png";
           break;
       }
+
+      notificationIcon.style.visibility = "visible";
       notificationToast.classList.add("visible");
 
       clearTimeout(notificationTimeout);
