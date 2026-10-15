@@ -582,34 +582,73 @@
       } //she fucking explodes lol
 
       const sendButton = document.getElementById("send-button");
-      sendButton.onclick = function() {
+      const messageSendKey = "website-message-send-status";
+
+      sendButton.onclick = function(event) {
         event.preventDefault();
 
-        const name = document.getElementById("name").value.trim()
-        const message = document.getElementById("message").value.trim()
+        const existingSendStatus = localStorage.getItem(messageSendKey);
+        if (existingSendStatus === "pending" || existingSendStatus === "sent") {
+          notification("Error", "You can only send one message from this browser.", "error");
+          return;
+        }
+
+        const name = document.getElementById("name").value.trim();
+        const message = document.getElementById("message").value.trim();
 
         if(message.length === 0) {
-          notification("Error", "Message must not be empty", "error")
+          notification("Error", "Message must not be empty", "error");
           return;
         }
 
         if(name.length === 0) {
-          notification("Error", "Name must not be empty", "error")
+          notification("Error", "Name must not be empty", "error");
           return;
         }
 
         if(message.length > 2000) {
-          notification("Error", "Message is too long (max 2000 char)", "error")
+          notification("Error", "Message is too long (max 2000 char)", "error");
           return;
         }
 
         if(name.length > 200) {
-          notification("Error", "Name is too long (max 200 char)", "error")
+          notification("Error", "Name is too long (max 200 char)", "error");
           return;
         }
 
-        notification("your message wasn't sent", "lol", "info")
-        //COMING SOON
+        localStorage.setItem(messageSendKey, "pending");
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            apikey: "450ea7fc-cd40-4ac0-8f2c-3c7bf7adfa51",
+            subject: `New website message from ${name}`,
+            name: name,
+            message: message
+          })
+        })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status === 200) {
+            localStorage.setItem(messageSendKey, "sent");
+            notification("yay", "Message sent successfully!", "success");
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+          } else {
+            localStorage.removeItem(messageSendKey);
+            console.log(json);
+            notification("Error", json.message || "Failed to send message", "error");
+          }
+        })
+        .catch((err) => {
+          localStorage.removeItem(messageSendKey);
+          console.error(err);
+          notification("Error", "Failed to send message", "error");
+        });
       }
 
       let count = 0;
