@@ -23,41 +23,101 @@
       </div>
     </div>
 
-    <div class="header">
-      <!--do this shit later broh-->
-    </div>
+    <footer class="header">
+      <div>troyganguly.com — 2026</div>
+      <div> all rights reserved or something</div>
+    </footer>
 
-    <div class="button-div">
-      <button class="cool-button">
-        <a href="./index.html">about me</a>
+    <nav class="button-div">
+      <button class="cool-button" onclick="window.location.href='./index.html'">
+        <p>index</p>
       </button>
-      <button class="cool-button">
-        <a href="./media.html">media</a>
+
+      <button class="cool-button" onclick="window.location.href='./media.html'">
+        <p>media</p>
       </button>
-      <button class="cool-button">
-        <a href="./programming.html">programming</a>
+
+      <button class="cool-button" onclick="window.location.href='./programming.html'">
+        <p>programming</p>
       </button>
-      <button class="cool-button">
-        <a href="./misc.html">misc</a>
+
+      <button class="cool-button" onclick="window.location.href='./misc.html'">
+        <p>misc</p>
       </button>
-    </div>
+    </nav>
+
     <main>
-      <div class="card">
-        <h2>welcome</h2>
-        <p>welcome to my personal website. i made this for fun because i own the domain and i didn't know what to do with it.</p>
-        <p>the site is unfinished and it'll probably always be WIP because i will never run out of things to add.</p>
-        <p>btw, just try access the site on ipad/computer because im lazy and it's like those old websites where everything breaks if u go on phone</p>
-      </div>
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <h2>welcome</h2>
+          </div>
+          <p>welcome to my personal website. i made this for fun because i own the domain and i didn't know what to do with it.</p>
+          <p>the site is unfinished and it'll probably always be WIP because i will never run out of things to add.</p>
+        </div>
 
-      <div class="card">
-        <h2>about me</h2>
-        <div class="card2">
-          <p>im troy (obviously) and i love a lot of things</p>
+        <div class="card" id="update-log">
+          <div class="card-header">
+            <h2>update log</h2>
+          </div>
+
+          <hr>
+          <p>I BARELY DID ANY WORK YESTERDAY I LIED</p>
+          <small>19 Nov 2026</small>
+
+          <hr>
+          <p>development on the media commences!! it's just gonna have info about movies / games/ comic / whatnot/ i like</p>
+          <small>18 Nov 2026</small>
+
+          <hr>
+          <p>IM WORKING ON THE WEBSITE SLOWLY BUT SURELY AND MORE STUFF IS COMING IN THE FUTURE</p>
+          <small>17 Nov 2026</small>
+
+          <hr>
+          <p>started development and i went hunting for assets</p>
+          <small>16 Nov 2026</small>
         </div>
       </div>
 
-      <div class="card">
-        <h2>guestbook</h2>
+      <div class="column">
+        <div class="card">
+          <h2>about me</h2>
+          <div class="card2">
+            <p>im troy (obviously) and i love a lot of things</p>
+            <p>this is my site where i dump whatever i want into it. i like computers, tv shows, games, anime, movies, and whatever other stuff i probably forgot to mention</p>
+            <p>i play a lot of games and watch a lot of tv shows everyday. i have 2000 hours on geometry dash !! i also like osu</p>
+
+            <h3 style="color: white; margin-top: 16px;">quick facts</h3>
+            <p>- i used to use linux before it got annoying</p>
+            <p>- also i love foxes and raccoons</p>
+            <p>- i type real fast because i spend a significant amount of time at my computer</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <h2>guestbook</h2>
+          </div>
+          <p>COMING SOON</p>
+        </div>
+
+        <div class="card" id="currently">
+          <div class="card-header">
+            <h2>currently i am:</h2>
+          </div>
+          <p>WATCHING RICK AND MORTY</p>
+          <img src="assets/rickandmorty.jpg" alt="Poster of the show Rick and Morty">
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>test</h2>
+          </div>
+        </div>
+
       </div>
     </main>
   </body>
