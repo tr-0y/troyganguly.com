@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>troy's Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+      main {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .media-section {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      @media (max-width: 800px) {
+        .media-section {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card h2 {
+        margin: 0;
+        padding: 0;
+        justify-self: center;
+      }
+
+      .media-section {
+        padding: 24px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+
+      .favourites-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .favourites-grid img {
+        width: 100%;
+        display: block;
+        border-radius: 12px;
+        object-fit: cover;
+        aspect-ratio: 2 / 3;
+        transition: transform 0.15s;
+      }
+
+      .favourites-grid img:hover {
+        transform: scale(1.05);
+      }
+
+      @media(max-width: 800px) {
+        .favourites-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .card2 {
+        padding: 4px 0px;
+        height: auto;
+        min-height: auto;
+        transition: opacity 0.15s, transform 0.15s;
+        border: 3px solid #2689e8;
+      }
+
+      .card2 p {
+        justify-self: center;
+        font-size: 1.2rem;
+      }
+      
+      .card2:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+
+      .card h3 {
+        margin-bottom: 8px;
+      }
+      
+      .media-entry {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 16px 0px;
+        border-bottom: 2px solid rgba(50, 50, 50, 0.2);
+      }
+
+      .media-content {
+        flex: 1;
+        min-width: 0px;
+      }
+
+      .media-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .media-entry img {
+        width: 30%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      @media(max-width: 800px) {
+        .media-entry {
+          flex-direction: column;
+        }
+        .media-entry img {
+          width: 80%;
+        }
+
+        main {
+          gap: 2rem;
+        }
+
+        .media-section {
+          padding: 12px;
+        }
+      }
+
+      .media-entry:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 class="logo">troyganguly.com</h1>
+
+      <div class="character-div">
+        <img src="assets/rem.png" alt="A decorative image of Rem from Re:Zero" id="rem">
+        <img src="assets/miku.png" alt="A decorative image of Hatsune Miku" id="miku">
+        <img src="assets/vanilla.png" alt="A decorative image of Vanilla from Nekopara" id="vanilla">
+      </div>
+    </div>
+
+    <nav class="button-div">
+      <button class="cool-button" onclick="window.location.href='./index.html'">
+        <p>index</p>
+      </button>
+
+      <button class="cool-button active" onclick="window.location.href='./media.html'">
+        <p>media</p>
+      </button>
+
+      <button class="cool-button" onclick="window.location.href='./programming.html'">
+        <p>programming</p>
+      </button>
+
+      <button class="cool-button" onclick="window.location.href='./misc.html'">
+        <p>misc</p>
+      </button>
+    </nav>
+
+    <main>
+      <section class="media-section">
+        <div class="column">
+          <div class="card">
+            <h2>film & television</h2>
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>mr robot</h3>
+                <p>HELLO ELLIOT WAS SO GOOD. i dont wanna spoil it but like this episode was genuinely life changing. the final episode was so great because of [spoilers!!!] and i felt like it recontextualised everything that came before. i just loved season 4 the whole way through, i actually watched it in like 3 days. the entire show was an experience i'd love to go through again, and there were so many twists, the unreliable narrator was executed so well too. i loved being deceived and misled</p>
+              </div>
+              <img src="assets/helloelliot.jpg">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>rick and morty</h3>
+                <p>i recently finished season 7. it was pretty good overall, although i did think there were some weak episodes, i couldn't be bothered watching the numbericons episode. but there were some really great ones too, especially unmortricken and Fear No Mort. Fear No Mort, in particular, does a great job at exploring morty's character and his complicated relationship with rick. i loved how much emotional depth it gave him. even though this season wasn't as good as earlier season 1–3 (haha everyone has this complaint), it was enjoyable</p>
+              </div>
+              <img src="assets/rickscreenshot.png">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>no country for old men</h3>
+                <p>wowww i loved this movie so much even though i probably didn't fully understand it at first. the philosophy, atmosphere, and characters are unmatched, it's so good because it's so restrained. if you watch this, you might think the main plot is something, but keep in mind the title of the movie while watching</p>
+              </div>
+              <img src="assets/antonchigurh.jpg">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>house</h3>
+                <p>hilson</p>
+              </div>
+              <img src="assets/house.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-header">
+              <h2>to watch</h2>
+            </div>
+            <div class="card2">
+              <p>severance</p>
+            </div>
+            <div class="card2">
+              <p>YOU</p>
+            </div>
+            <div class="card2">
+              <p>prison break</p>
+            </div>
+            <div class="card2">
+              <p>nightcrawler</p>
+            </div>
+            <div class="card2">
+              <p>inception</p>
+            </div>
+            <div class="card2">
+              <p>12 angry men</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2>favourites</h2>
+            </div>
+            <div class="favourites-grid">
+              <img src="assets/bcs.png">
+              <img src="assets/whiplash.jpg">
+              <img src="assets/mrrobot.png">
+              <img src="assets/fight-club.jpg">
+              <img src="assets/house.png">
+              <img src="assets/thedarkknight.jpg">
+              <img src="assets/nocountry.jpg">
+              <img src="assets/rickandmorty.jpg">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="media-section">
+        <div class="column">
+          <div class="card">
+            <h2>anime</h2>
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>mr robot</h3>
+                <p>HELLO ELLIOT WAS SO GOOD. i dont wanna spoil it but like this episode was genuinely life changing</p>
+              </div>
+              <img src="assets/helloelliot.jpg">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>rick and morty</h3>
+                <p>text</p>
+              </div>
+              <img src="assets/helloelliot.jpg">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>house</h3>
+                <p>text</p>
+              </div>
+              <img src="hi">
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-header">
+              <h2>to watch</h2>
+            </div>
+            <div class="card2">
+              <p>inception</p>
+            </div>
+            <div class="card2">
+              <p>12 angry men</p>
+            </div>
+            <div class="card2">
+              <p>nightcrawler</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2>favourites</h2>
+            </div>
+            <div class="favourites-grid">
+              <img src="assets/bcs.png">
+              <img src="assets/mrrobot.png">
+              <img src="assets/house.png">
+              <img src="assets/rickandmorty.jpg">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="media-section">
+        <div class="column">
+          <div class="card">
+            <h2>games</h2>
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>mr robot</h3>
+                <p>HELLO ELLIOT WAS SO GOOD. i dont wanna spoil it but like this episode was genuinely life changing</p>
+                <!--write dis shit-->
+              </div>
+              <img src="assets/helloelliot.jpg">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>rick and morty</h3>
+                <p>text</p>
+              </div>
+              <img src="assets/helloelliot.jpg">
+            </div>
+
+            <div class="media-entry">
+              <div class="media-content">
+                <h3>house</h3>
+                <p>text</p>
+              </div>
+              <img src="assets/helloelliot.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-header">
+              <h2>to watch</h2>
+            </div>
+            <div class="card2">
+              <p>severance</p>
+            </div>
+            <div class="card2">
+              <p>YOU</p>
+            </div>
+            <div class="card2">
+              <p>prison break</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2>favourites</h2>
+            </div>
+            <div class="favourites-grid">
+              <img src="assets/bcs.png">
+              <img src="assets/mrrobot.png">
+              <img src="assets/house.png">
+              <img src="assets/rickandmorty.jpg">
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>
