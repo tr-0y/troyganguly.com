@@ -14,7 +14,7 @@
     <style>
       main {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 0px;
       }
 
       .media-section {
@@ -37,11 +37,14 @@
       }
 
       .media-section {
-        padding: 24px;
+        padding: 0px 24px 24px 24px;
         background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 24px;
+
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
+
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
       }
 
       .favourites-grid {
@@ -123,10 +126,6 @@
           width: 80%;
         }
 
-        main {
-          gap: 2rem;
-        }
-
         .media-section {
           padding: 12px;
         }
@@ -135,6 +134,46 @@
       .media-entry:last-child {
         border-bottom: none;
       }
+
+      .selector-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 12px;
+
+        padding: 12px;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+      }
+
+      .selector-div button {
+        border-radius: 99px;
+        border: none;
+        padding: 12px;
+        background-color: white;
+        transition: background-color 0.4s, color 0.4s;
+        cursor: pointer;
+        font-size: 1.4rem;
+      }
+
+      .selector-div button.active {
+        background-color: #2689e8;
+        color: white;
+      }
+
+      .media-section:not(.active) {
+        display: none;
+      }
+
+      .selector-button:hover {
+        background-color: #dceeff;
+      }
+
     </style>
   </head>
   <body>
@@ -167,7 +206,21 @@
     </nav>
 
     <main>
-      <section class="media-section" id="movies">
+      <div class="selector-div">
+        <button class="selector-button active" data-target="movies">
+          film & television
+        </button>
+
+        <button class="selector-button" data-target="anime">
+          anime
+        </button>
+
+        <button class="selector-button" data-target="games">
+          games
+        </button>
+      </div>
+
+      <section class="media-section active" id="movies">
         <div class="column">
           <div class="card">
             <h2>film & television</h2>
@@ -221,9 +274,6 @@
             <div class="card2">
               <p>inception</p>
             </div>
-            <div class="card2">
-              <p>12 angry men</p>
-            </div>
           </div>
           <div class="card">
             <div class="card-header">
@@ -258,7 +308,7 @@
             <div class="media-entry">
               <div class="media-content">
                 <h3>death note</h3>
-                <p>yeah light yagami is hot and stuff but</p>
+                <p>yeah light yagami is cool and stuff but</p>
               </div>
               <img src="assets/lightyagami.jpg">
             </div>
@@ -311,59 +361,61 @@
             <h2>games</h2>
             <div class="media-entry">
               <div class="media-content">
-                <h3>mr robot</h3>
-                <p>HELLO ELLIOT WAS SO GOOD. i dont wanna spoil it but like this episode was genuinely life changing</p>
-                <!--write dis shit-->
+                <h3>wonderful everyday</h3>
+                <p>CURRENTLY PLAYING THIS</p>
+                <p>progress:</p>
+                <progress value="5" max="100"></progress>
               </div>
-              <img src="assets/helloelliot.jpg">
+              <img src="assets/subahibi.jpg">
             </div>
 
             <div class="media-entry">
               <div class="media-content">
-                <h3>rick and morty</h3>
-                <p>text</p>
-              </div>
-              <img src="assets/helloelliot.jpg">
-            </div>
+                <h3>osu!</h3>
+                <p>I PLAY OSU!MANIA 4K. my top play is 300+ pp !! right now i am climbing the ranks</p>
 
-            <div class="media-entry">
-              <div class="media-content">
-                <h3>house</h3>
-                <p>text</p>
               </div>
-              <img src="assets/helloelliot.jpg">
+              <img src="assets/osu.png">
             </div>
           </div>
         </div>
         <div class="column">
           <div class="card">
             <div class="card-header">
-              <h2>to watch</h2>
+              <h2>to play</h2>
             </div>
             <div class="card2">
-              <p>severance</p>
+              <p>danganronpa</p>
             </div>
             <div class="card2">
-              <p>YOU</p>
+              <p>blasphemous</p>
             </div>
             <div class="card2">
-              <p>prison break</p>
+              <p>oneshot</p>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <h2>favourites</h2>
-            </div>
-            <div class="favourites-grid">
-              <img src="assets/bcs.png">
-              <img src="assets/mrrobot.png">
-              <img src="assets/house.png">
-              <img src="assets/rickandmorty.jpg">
+            <div class="card2">
+              <p>red dead redemption 2</p>
             </div>
           </div>
         </div>
       </section>
-
     </main>
+
+    <script>
+      const buttons = document.querySelectorAll(".selector-button");
+      const sections = document.querySelectorAll(".media-section");
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          buttons.forEach(btn => btn.classList.remove("active"));
+          sections.forEach(section => section.classList.remove("active"));
+
+          button.classList.add("active");
+
+          const target = button.dataset.target;
+          document.getElementById(target).classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>

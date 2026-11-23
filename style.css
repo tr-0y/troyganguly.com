@@ -16,7 +16,7 @@
 
 body {
   background:
-    repeating-linear-gradient(0deg,rgba(0, 151, 255, 0.37) 0px var(--bg-size), rgba(255, 255, 255, 0.3) var(--bg-size) calc(2* var(--bg-size))),
+    repeating-linear-gradient(180deg,rgba(0, 151, 255, 0.37) 0px var(--bg-size), rgba(255, 255, 255, 0.3) var(--bg-size) calc(2* var(--bg-size))),
     repeating-linear-gradient(90deg,rgba(0, 151, 255, 0.37) 0px var(--bg-size), rgba(255, 255, 255, 0.3) var(--bg-size) calc(2* var(--bg-size)));
   min-height: 100vh;
   padding-bottom: 20vh;
@@ -330,6 +330,12 @@ button {
   text-shadow: 0px 0px 16px rgba(255, 255, 255, 0.2);
 }
 
-.active {
-  /*do*/
+.cool-button.active {
+  background: linear-gradient(145deg, rgb(0,153,255), #66ccff);
+  box-shadow:
+    inset 0 2px 4px rgba(100, 100, 100, 0.3),
+    inset 0px 4px 10px rgba(0, 40, 100, 0.5),
+    inset 0px 6px 20px rgba(0, 30, 80, 0.3);
+  transform: translateY(2px);
 }
+
