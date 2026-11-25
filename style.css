@@ -156,6 +156,7 @@ body {
 
   text-shadow: 0px 0px 16px rgba(57, 135, 244, 0.5);
   justify-self: center;
+  text-align: center;
 }
 
 .card p {
@@ -223,7 +224,6 @@ button {
 }
 
 .card2 {
-  min-height: 20vh;
   padding: 20px 16px;
   background: linear-gradient(to bottom, rgb(70, 156, 255), rgb(133, 218, 255));
 
@@ -300,6 +300,7 @@ button {
   border-top-left-radius: 12px;
 
   justify-self: center;
+  text-align: center;
 }
 
 @media (max-width: 800px) {
@@ -324,6 +325,7 @@ button {
 
 .card-header h2 {
   justify-self: center;
+  text-align: center;
   color: white;
   padding: 0px;
   margin: 0px;

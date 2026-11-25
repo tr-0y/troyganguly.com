@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>troy's Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="./assets/favicon.jpg">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+      main {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      @media(max-width:800px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .typing-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 16px 0px;
+      }
+
+      .typing-stat {
+        border: 2px solid #a4ceff;
+        border-radius: 16px;
+        padding: 12px 8px;
+        text-align: center;
+        color: #3478d4;
+        transition: transform 0.15s;
+      }
+
+      .typing-stat:hover {
+        transform: scale(1.05);
+      }
+
+      .typing-stat h3 {
+        font-family: Fredoka, sans-serif;
+        font-size: 36px;
+      }
+
+      .typing-stat small {
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+
+      .typing-stat span {
+        font-size: 15px;
+      }
+
+      .cube-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
+      }
+
+      .cube-list span {
+        padding: 4px 8px;
+        border-radius: 12px;
+        background-color: #b8d9ff;
+        color: #307ce7;
+        border: 2px solid #a4ceff;
+
+        font-size: 0.8rem;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+
+      .cube-list span:hover {
+        box-shadow: 0px 0px 4px 4px rgba(104, 181, 244, 0.2);
+        transform: scale(1.05);
+      }
+
+      .pc-spec-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px;
+        padding: 12px 4px;
+        border-radius: 16px;
+        align-items: center;
+      }
+      
+      .pc-spec-grid h3 {
+        margin: 0px;
+        justify-self: start;
+      }
+
+      .pc-spec-grid p {
+        font-size: 1rem;
+        margin-left: 8px;
+      }
+
+      .image-gallery {
+        columns: 4;
+        column-gap: 24px;
+        margin: 0px 12px;
+      }
+
+      .image-gallery .image-container {
+        break-inside: avoid;
+        margin-bottom: 24px;
+      }
+
+      .image-gallery img {
+        display: block;
+        width: 100%;
+
+        box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+      }
+
+      @media (max-width: 800px) {
+        .image-gallery {
+          columns: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 class="logo">troyganguly.com</h1>
+
+      <div class="character-div">
+        <img src="assets/rem.png" alt="" id="rem">
+        <img src="assets/miku.png" alt="" id="miku">
+        <img src="assets/vanilla.png" alt="" id="vanilla">
+      </div>
+    </div>
+
+    <nav class="button-div">
+      <button class="cool-button" onclick="window.location.href='./index.html'">
+        <p>index</p>
+      </button>
+
+      <button class="cool-button" onclick="window.location.href='./media.html'">
+        <p>media</p>
+      </button>
+
+      <button class="cool-button" onclick="window.location.href='./programming.html'">
+        <p>programming</p>
+      </button>
+
+      <button class="cool-button active" onclick="window.location.href='./misc.html'">
+        <p>misc</p>
+      </button>
+    </nav>
+
+    <main>
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <h2>typing</h2>
+          </div>
+
+          <p>i type pretty fast</p>
+          <p>monkeytype stats:</p>
+
+          <div class="typing-grid">
+            <div class="typing-stat">
+              <span>15 seconds</span>
+              <h3>190 <small>wpm</small></h3>
+              <span>100% acc</span>
+            </div>
+
+            <div class="typing-stat">
+              <span>60 seconds</span>
+              <h3>159 <small>wpm</small></h3>
+              <span>98% acc</span>
+            </div>
+
+            <div class="typing-stat">
+              <span>10 words</span>
+              <h3>224 <small>wpm</small></h3>
+              <span>100% acc</span>
+            </div>
+
+            <div class="typing-stat">
+              <span>25 words</span>
+              <h3>197 <small>wpm</small></h3>
+              <span>100% acc</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <h2>cubing</h2>
+          </div>
+          <p>i like collecting and solving twisty puzzles!! my main 3x3 is a gan V100.</p>
+          <p>i have a collection:</p>
+          <div class="cube-list">
+            <span>2x2</span>
+            <span>3x3</span>
+            <span>4x4</span>
+            <span>5x5</span>
+            <span>6x6</span>
+            <span>7x7</span>
+            <span>9x9</span>
+            <span>13x13</span>
+            <span>megaminx</span>
+            <span>pyraminx</span>
+            <span>skewb</span>
+            <span>fto</span>
+            <span>square-1</span>
+            <span>mirror cube</span>
+            <span>fisher cube</span>
+            <span>windmill cube</span>
+            <span>axis cube</span>
+            <span>puppet cube</span>
+            <span>polaris cube</span>
+            <span>gear cube</span>
+            <span>dino cube</span>
+            <span>mixup skewb</span>
+            <span>kilominx</span>
+            <span>ghost cube</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <h2>my setup</h2>
+          </div>
+          <div class="pc-spec-grid">
+            <h3>cpu:</h3>
+            <p>AMD Ryzen 5 5600</p>
+
+            <h3>gpu:</h3>
+            <p>ASUS Dual RX 7600 8GB</p>
+
+            <h3>motherboard:</h3>
+            <p>ASUS PRIME B550M-A WIFI II</p>
+
+            <h3>ram:</h3>
+            <p>Apacer 16GB DDR4 3200MHz</p>
+
+            <h3>storage:</h3>
+            <p>Crucial E100 1TB NVMe SSD</p>
+
+            <h3>psu:</h3>
+            <p>MSI MAG A750GL 750W Gold</p>
+
+            <h3>case:</h3>
+            <p>Montech XR</p>
+
+            <h3>keyboard:</h3>
+            <p>Aula F75 (LEOBOG Reaper switches)</p>
+
+            <h3>mouse:</h3>
+            <p>Logitech G502 Hero</p>
+
+            <h3>monitor 1:</h3>
+            <p>MSI MAG 274QPF E20 (1440p 200Hz)</p>
+
+            <h3>monitor 2:</h3>
+            <p>AOC 24G11ZE (1080p 240Hz)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="grid-column: 1 / -1;">
+        <h2>image gallery</h2>
+        <div class="image-gallery">
+          <div class="image-container">
+            <img src="assets/sayaka2.png">
+          </div>
+
+          <div class="image-container">
+            <img src="assets/helloelliot.jpg">
+          </div>
+
+          <div class="image-container">
+            <img src="assets/helloelliot.jpg">
+          </div>
+
+          <div class="image-container">
+            <img src="assets/helloelliot.jpg">
+          </div>
+
+          <div class="image-container">
+            <img src="assets/helloelliot.jpg">
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
