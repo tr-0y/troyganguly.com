@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - page not found</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/jpeg" href="./assets/favicon.jpg">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/jpeg" href="/assets/favicon.jpg">
 
     <style>
       main {
@@ -16,11 +16,15 @@
       }
 
       body {
-        padding-bottom: 0;
+        padding: 0px;
       }
 
       .card {
         text-align: center;
+        width: 50%;
+        min-width: 400px;
+        max-width: 90%;
+        padding-bottom: 0px;
       }
 
       .cool-button {
@@ -29,16 +33,24 @@
         margin-top: 16px;
         font-size: 1.5rem;
       }
+
+      .card img {
+        display: block;
+        height: 30vh;
+        margin: 0px auto;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
     <main>
       <div class="card">
-        <h2>what are you doing!!!</h2>
+        <h2>oops!</h2>
         <p>this page is not done yet...</p>
-        <a class="cool-button" href="./index.html">
+        <a class="cool-button" href="/">
           go home
         </a>
+        <img src="/assets/chocola.png">
       </div>
     </main>
   </body>
