@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
+
+body,
+#input,
+.senderInfo,
+.msgBody {
+  font-family: "Delius", sans-serif;
+}
+
+#chattable {
+  width: 100%;
+}
+
+#background {
+  background: #f2f8ff;
+}
+
+#top_banner {
+  display: none;
+}
+
+.allMessages {
+  background: #ffffff;
+  border: 2px solid #b9d8ff;
+  border-radius: 12px;
+}
+
+.allMessages.sent {
+  background: #dceeff;
+}
+
+.senderInfo {
+  color: #235da9;
+}
+
+.msgBody,
+#input {
+  color: #34445c;
+}
+
+#input,
+#emojiTrayToggle {
+  display: none;
+}
+
+.msgWrapper {
+  margin-top: 4px;
+}

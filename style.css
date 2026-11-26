@@ -174,7 +174,11 @@ main {
   padding: 0px 32px;
 }
 
-button {
+button, input, textarea, select {
+  font: inherit;
+}
+
+.cool-button {
   font-family: Delius;
   font-size: 2rem;
 }
