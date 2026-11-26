@@ -123,6 +123,33 @@
           columns: 1;
         }
       }
+
+      .vanilla-container {
+        position: fixed;
+        z-index: 999;
+        right: 0px;
+        bottom: 0px;
+      }
+
+      .vanilla-container img {
+        height: 30vh;
+        transition: transform 0.15s;
+      }
+
+      .vanilla-container img:hover {
+        transform: scale(1.03);
+      }
+
+      @media (max-width: 800px) {
+        .vanilla-container {
+          right: 50%;
+          left: auto;
+          transform: translateX(50%);
+        }
+        .vanilla-container img {
+          height: 20vh;
+        }
+      }
     </style>
   </head>
   <body>
@@ -274,26 +301,18 @@
         <h2>image gallery</h2>
         <div class="image-gallery">
           <div class="image-container">
-            <img src="assets/sayaka2.png">
+            <img src="assets/sayaka3.png">
           </div>
 
           <div class="image-container">
             <img src="assets/helloelliot.jpg">
-          </div>
-
-          <div class="image-container">
-            <img src="assets/helloelliot.jpg">
-          </div>
-
-          <div class="image-container">
-            <img src="assets/helloelliot.jpg">
-          </div>
-
-          <div class="image-container">
-            <img src="assets/helloelliot.jpg">
+            <small>im lazy to do these rn so i'll probably add them as i go</small>
           </div>
         </div>
       </div>
     </main>
+    <div class="vanilla-container">
+      <img src="assets/vanillachibi.png">
+    </div>
   </body>
 </html>

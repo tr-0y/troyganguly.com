@@ -60,7 +60,43 @@
         flex: 1;
         padding: 8px;
         border: 1px solid #b6dfff;
+        border-radius: 8px;
+      }
+
+      .todo-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .task {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .task::before {
+        content: "";
+
+        padding: 0px;
+        height: 16px;
+        aspect-ratio: 1 / 1;
+        border: 1.5px solid #6099eb;
         border-radius: 4px;
+        background-color: white;
+      }
+
+      .task.done::before {
+        content: "✓";
+        background-color: #59b7ff;
+        color: white;
+        text-align: center;
+        line-height: 16px;
+      }
+
+      .task.done p {
+        text-decoration: line-through;
+        opacity: 0.5;
       }
     </style>
   </head>
@@ -118,7 +154,11 @@
           </div>
 
           <hr>
-          <p>made a 404 page, and finally did git push, after fighting git a bit—now my website is open to the public!!!</p>
+          <p>made the guestbook—hopefully it turns out well!</p>
+          <small>26 Nov 2026</small>
+
+          <hr>
+          <p>made a 404 page, and finally did git push, after fighting a git conflict a bit—now my website is open to the public!!!</p>
           <small>24 Nov 2026</small>
 
           <hr>
@@ -157,7 +197,6 @@
           <div class="card2">
             <p>helloo im troy and i love a lot of things—welcome to my website</p>
             <p>this is my site where i dump whatever i want into it. i like computers, tv shows, games, anime, movies, and whatever other stuff i probably forgot to mention</p>
-            <p></p>
           </div>
         </div>
 
@@ -188,6 +227,26 @@
           </div>
           <p>WATCHING RICK AND MORTY</p>
           <img src="assets/rickandmorty.jpg" alt="Poster of the show Rick and Morty">
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>site todo</h2>
+          </div>
+          <div class="todo-list">
+            <div class="task done">
+              <p>make a 404 page</p>
+            </div>
+            <div class="task done">
+              <p>publish site</p>
+            </div>
+            <div class="task">
+              <p>make /programming.html</p>
+            </div>
+            <div class="task">
+              <p>add more stuff and idk</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
