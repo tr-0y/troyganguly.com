@@ -39,6 +39,7 @@ body,
 }
 
 #input,
+#settings,
 #emojiTrayToggle {
   display: none;
 }

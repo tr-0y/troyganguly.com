@@ -98,6 +98,13 @@
         text-decoration: line-through;
         opacity: 0.5;
       }
+
+      #name:read-only {
+        cursor: not-allowed;
+        background-color: lightgrey;
+        outline: none;
+        opacity: 0.85;
+      }
     </style>
   </head>
   <body>
@@ -210,11 +217,11 @@
           <form>
             <div>
               <label for="name">name:</label>
-              <input id="name" type="text" placeholder="your name...">
+              <input id="name" type="text" placeholder="your name..." maxlength="30">
             </div>
             <div>
               <label for="message">message:</label>
-              <input id="message" type="text" placeholder="your message!">
+              <input id="message" type="text" placeholder="your message!" maxlength="300">
             </div>
             <button id="send-button">send</button>
           </form>
@@ -253,19 +260,66 @@
     </main>
 
     <script>
+      const sendButton = document.getElementById("send-button");
+
+      sendButton.disabled = true;
+
+      chattable.on("load", () => {
+        sendButton.disabled = false;
+      });
+
       const form = document.querySelector("form");
       const nameInput = document.getElementById("name");
       const message = document.getElementById("message");
+
+      let savedName = localStorage.getItem("guestbook_username");
+      let lastSent = 0;
+      let lastMessage = "";
+
+      if (savedName) {
+        nameInput.value = savedName;
+        nameInput.readOnly = true;
+      }
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
         const userMessage = message.value.trim();
-        const userName = nameInput.value.trim();
+        const userName = savedName || nameInput.value.trim();
 
-        if (!userMessage) return;
+        if (!userMessage || !userName) return;
 
-        chattable.sendMessage(userMessage, userName || undefined);
+        if (userName.length > 30 ) {
+          alert("your name is too long!");
+          return;
+        }
+
+        if (userMessage.length > 300) {
+          alert("your message is too long!");
+          return;
+        }
+
+        if (Date.now() - lastSent < 5000) {
+          alert("wait a few seconds before sending again!");
+          return;
+        }
+
+        if (userMessage.toLowerCase() === lastMessage.toLowerCase()) {
+          alert("don't send the same message twice!");
+          return;
+        }
+
+        chattable.sendMessage(userMessage, userName);
+
+        if (!savedName) {
+          savedName = userName;
+          localStorage.setItem("guestbook_username", savedName);
+          nameInput.value = savedName;
+          nameInput.readOnly = true;
+        }
+
+        lastSent = Date.now();
+        lastMessage = userMessage;
 
         message.value = "";
         message.focus();
